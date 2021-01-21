@@ -11,7 +11,7 @@
 	<h:body>
 	
 		<p:layout fullPage="true">
-		    <p:layoutUnit position="north" size="50">
+		    <p:layoutUnit position="north" size="55">
 			    <div>
 				    <h:form>
 				        <p:menubar>
@@ -20,11 +20,15 @@
 							<p:menuitem value="Listagem" action="#{loginMBean.listagem()}" />
 		
 				            <p:menuitem value="Logout" action="#{loginMBean.logout()}"/>
+				            
+				            <f:facet name="options">
+					            <h:outputText value="#{loginMBean.usuarioLogado.nome}" />
+				            </f:facet>
 				        </p:menubar>
 				    </h:form>
 				</div>
 		    </p:layoutUnit>
-		    <p:layoutUnit position="center">
+		    <p:layoutUnit position="center" >
 				<div>
 				    <h:form>
 				        <ui:insert name="content" />

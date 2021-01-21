@@ -11,18 +11,21 @@
 
 	<h:body>
 	
-		<h:form>
-			<p:messages id="messages" showDetail="true" closable="true" />
-		
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputText value="Login: " />
-				<p:inputText id="loginInput" value="#{loginMBean.login}" />
-				
-				<h:outputText value="Senha: " />
-				<p:password id="senhaInput" value="#{loginMBean.senha}" />
-				
-				<p:commandButton value="Entrar" update="messages" action="#{loginMBean.logar()}" />
-			</h:panelGrid>
-		</h:form>
+		<p:dialog position="center" draggable="false" resizable="false" visible="true" closable="false"
+				header="Login">
+			<h:form>
+				<p:messages id="messages" showDetail="true" closable="true" />
+			
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Login: " />
+					<p:inputText id="loginInput" value="#{loginMBean.login}" />
+					
+					<h:outputText value="Senha: " />
+					<p:password id="senhaInput" value="#{loginMBean.senha}" />
+					
+					<p:commandButton value="Entrar" update="messages" action="#{loginMBean.logar()}" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
 	</h:body>
 </html>

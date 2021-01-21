@@ -8,8 +8,6 @@
 <ui:composition template="/templates/template.xhtml">
   <ui:define name="content">
 	
-			<h:outputText value="Olá, #{loginMBean.usuarioLogado.nome}." />
-			
 			<p:dataTable var="urlEncurtada" value="#{loginMBean.urlsEncurtadas}"
 					emptyMessage = "Não há registros de urls encurtadas." >
 			    <p:column headerText="Url Encurtada">
