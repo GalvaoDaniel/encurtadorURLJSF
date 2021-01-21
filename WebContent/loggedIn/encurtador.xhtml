@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+		
+	</h:head>
+
+	<h:body>
+	
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" id="urlsPainel" >
+				<h:outputText value="URL: " />
+				<p:inputText id="urlOriginalInput" value="#{urlEncurtadaMBean.urlEncurtada.urlOriginal}" />
+				
+				<h:outputText value="URL Encurtada: #{urlEncurtadaMBean.urlEncurtada.urlEncurtada}" rendered = "#{urlEncurtadaMBean.urlEncurtada.urlEncurtada != null}"/>
+			</h:panelGrid>
+			
+			<p:separator/>
+			
+			<p:commandButton value="Encurtar URL" id="encurtarUrlButton" action="#{urlEncurtadaMBean.encurtarUrl()}" ajax="true" update="urlsPainel"/>
+			
+			<p:separator/>
+			
+			<p:commandButton value="Voltar para listagem" id="voltarParaListagemButton" action="#{loginMBean.listagem()}" />
+		</h:form>
+		
+	</h:body> 
+</html>

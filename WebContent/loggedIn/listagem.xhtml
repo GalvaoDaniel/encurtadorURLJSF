@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		
+	</h:head>
+
+	<h:body>
+	
+		<h:form>
+	
+			<h:outputText value="Olá, #{loginMBean.usuarioLogado.nome}." />
+			
+			<p:dataTable var="urlEncurtada" value="#{loginMBean.urlsEncurtadas}"
+					emptyMessage = "Não há registros de urls encurtadas." >
+			    <p:column headerText="Url Encurtada">
+			        <h:outputText value="#{urlEncurtada.urlEncurtada}" />
+			    </p:column>
+			 
+			    <p:column headerText="Url Original">
+			        <h:outputText value="#{urlEncurtada.urlOriginal}" />
+			    </p:column>
+			 
+			    <p:column headerText="Data do Processamento">
+			        <h:outputText value="#{urlEncurtada.dataProcessamento}" >
+					    <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+					</h:outputText>
+			    </p:column>
+			</p:dataTable>
+			
+			<p:separator/>
+			
+			<p:commandButton value="Encurtar nova URL" id="encurtarNovaUrlButton" action="#{urlEncurtadaMBean.encurtador()}" />
+			
+			<p:commandButton value="Logout" id="logoutButton" action="#{loginMBean.logout()}" />
+			
+		</h:form>
+		
+	</h:body>
+</html>
