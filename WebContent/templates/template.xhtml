@@ -9,24 +9,29 @@
 	
 	</h:head>
 	<h:body>
-	    <div class="card">
-		    <h:form>
+	
+		<p:layout fullPage="true">
+		    <p:layoutUnit position="north" size="50">
+			    <div>
+				    <h:form>
+				        <p:menubar>
+				            <p:menuitem value="Encurtador de URL" action="#{urlEncurtadaMBean.encurtador()}" />
+				
+							<p:menuitem value="Listagem" action="#{loginMBean.listagem()}" />
 		
-		        <p:menubar>
-		            <p:menuitem value="Encurtador de URL" action="#{urlEncurtadaMBean.encurtador()}" />
+				            <p:menuitem value="Logout" action="#{loginMBean.logout()}"/>
+				        </p:menubar>
+				    </h:form>
+				</div>
+		    </p:layoutUnit>
+		    <p:layoutUnit position="center">
+				<div>
+				    <h:form>
+				        <ui:insert name="content" />
+				    </h:form>
+				</div>
+		    </p:layoutUnit>
+		</p:layout>
 		
-					<p:menuitem value="Listagem" action="#{loginMBean.listagem()}" />
-
-		            <p:menuitem value="Logout" action="#{loginMBean.logout()}"/>
-		        </p:menubar>
-		        
-		    </h:form>
-		</div>
-		
-		<div class="card">
-		    <h:form>
-		        <ui:insert name="content" />
-		    </h:form>
-		</div>
 	</h:body>
 </html>
