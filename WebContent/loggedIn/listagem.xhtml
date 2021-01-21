@@ -5,13 +5,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		
-	</h:head>
-
-	<h:body>
-	
-		<h:form>
+<ui:composition template="/templates/template.xhtml">
+  <ui:define name="content">
 	
 			<h:outputText value="Olá, #{loginMBean.usuarioLogado.nome}." />
 			
@@ -32,13 +27,6 @@
 			    </p:column>
 			</p:dataTable>
 			
-			<p:separator/>
-			
-			<p:commandButton value="Encurtar nova URL" id="encurtarNovaUrlButton" action="#{urlEncurtadaMBean.encurtador()}" />
-			
-			<p:commandButton value="Logout" id="logoutButton" action="#{loginMBean.logout()}" />
-			
-		</h:form>
-		
-	</h:body>
+	</ui:define>
+</ui:composition>
 </html>
