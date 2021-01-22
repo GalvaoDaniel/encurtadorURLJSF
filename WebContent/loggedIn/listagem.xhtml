@@ -10,7 +10,8 @@
   	<p:panel header = "Listagem" >
 		<h:form>
 			<p:dataTable var="urlEncurtada" value="#{loginMBean.urlsEncurtadas}"
-					emptyMessage = "Não há registros de urls encurtadas." >
+					emptyMessage = "Não há registros de urls encurtadas." paginator="true" rows="10"
+					paginatorPosition="bottom">
 			    <p:column headerText="Url Encurtada">
 			        <h:outputText value="#{urlEncurtada.urlEncurtada}" />
 			    </p:column>
@@ -19,7 +20,7 @@
 			        <h:outputText value="#{urlEncurtada.urlOriginal}" />
 			    </p:column>
 			 
-			    <p:column headerText="Data do Processamento">
+			    <p:column headerText="Data do Processamento" sortBy="#{urlEncurtada.dataProcessamento}">
 			        <h:outputText value="#{urlEncurtada.dataProcessamento}" >
 					    <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
 					</h:outputText>

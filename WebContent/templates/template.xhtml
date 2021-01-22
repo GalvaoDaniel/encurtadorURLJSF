@@ -6,13 +6,11 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 	<h:head>
-	
+		<title>Encurtador de URl</title>
 		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
-	
 	</h:head>
 	<h:body>
-	
-		<p:panel>
+		
 		    <h:form>
 		        <p:menubar>
 		            <p:menuitem value="Encurtador de URL" action="#{urlEncurtadaMBean.encurtador()}"  icon="pi pi-angle-double-left"/>
@@ -27,8 +25,7 @@
 		            
 		        </p:menubar>
 		    </h:form>
-	    </p:panel>
-	    
+			    
 	    <br/>
 	  
 		<ui:insert name="content" />
