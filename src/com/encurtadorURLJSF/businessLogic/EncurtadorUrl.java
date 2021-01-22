@@ -10,7 +10,7 @@ public class EncurtadorUrl {
 	 * @return URL encurtada
 	 */
 	public static String encurtarUrl(String url) {
-		return "http://localhost:8080/encurtadorURLJSF6/s/" + getStringAleatoria();
+		return "http://localhost:8080/encurtadorURLJSF/s/" + getStringAleatoria();
 	}
 	
 	private static String getStringAleatoria() {

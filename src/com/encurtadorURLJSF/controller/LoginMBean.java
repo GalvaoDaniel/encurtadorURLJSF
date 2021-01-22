@@ -31,6 +31,11 @@ public class LoginMBean implements Serializable{
 	private List<UrlEncurtada> urlsEncurtadas;
 	
 	public String logar() {
+		if ((login == null || login.isEmpty()) || (senha == null || senha.isEmpty())) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "", "Usuario e senha devem ser preenchidos."));
+			return "login";
+		}
+		
 		UsuarioDao usuarioDao = new UsuarioDao();
 		Usuario usuarioLogando = usuarioDao.findUsuarioByLogin(login);
 		

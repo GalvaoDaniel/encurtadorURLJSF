@@ -7,35 +7,31 @@
 
 	<h:head>
 	
+		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+	
 	</h:head>
 	<h:body>
 	
-		<p:layout fullPage="true">
-		    <p:layoutUnit position="north" size="55">
-			    <div>
-				    <h:form>
-				        <p:menubar>
-				            <p:menuitem value="Encurtador de URL" action="#{urlEncurtadaMBean.encurtador()}" />
-				
-							<p:menuitem value="Listagem" action="#{loginMBean.listagem()}" />
+		<p:panel>
+		    <h:form>
+		        <p:menubar>
+		            <p:menuitem value="Encurtador de URL" action="#{urlEncurtadaMBean.encurtador()}"  icon="pi pi-angle-double-left"/>
 		
-				            <p:menuitem value="Logout" action="#{loginMBean.logout()}"/>
-				            
-				            <f:facet name="options">
-					            <h:outputText value="#{loginMBean.usuarioLogado.nome}" />
-				            </f:facet>
-				        </p:menubar>
-				    </h:form>
-				</div>
-		    </p:layoutUnit>
-		    <p:layoutUnit position="center" >
-				<div>
-				    <h:form>
-				        <ui:insert name="content" />
-				    </h:form>
-				</div>
-		    </p:layoutUnit>
-		</p:layout>
+					<p:menuitem value="Listagem" action="#{loginMBean.listagem()}"  icon="pi pi-list"/>
+					
+					<p:menuitem value="Logout" action="#{loginMBean.logout()}" icon="pi pi-sign-out"/>
+		
+		            <f:facet name="options">
+			            <h:outputText value="#{loginMBean.usuarioLogado.nome}" />
+		            </f:facet>
+		            
+		        </p:menubar>
+		    </h:form>
+	    </p:panel>
+	    
+	    <br/>
+	  
+		<ui:insert name="content" />
 		
 	</h:body>
 </html>

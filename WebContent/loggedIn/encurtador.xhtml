@@ -7,16 +7,21 @@
 
 <ui:composition template="/templates/template.xhtml">
   <ui:define name="content">
+  	<p:panel header = "Encurtador de URL" >
+		<h:form>
 			<h:panelGrid columns="2" cellpadding="5" id="urlsPainel" >
 				<h:outputText value="URL: " />
 				<p:inputText id="urlOriginalInput" value="#{urlEncurtadaMBean.urlEncurtada.urlOriginal}" />
 				
-				<h:outputText value="URL Encurtada: #{urlEncurtadaMBean.urlEncurtada.urlEncurtada}" rendered = "#{urlEncurtadaMBean.urlEncurtada.urlEncurtada != null}"/>
+				<h:outputText value="URL Encurtada: " />
+				<h:outputText value="#{urlEncurtadaMBean.urlEncurtada.urlEncurtada}" rendered = "#{urlEncurtadaMBean.urlEncurtada.urlEncurtada != null}"/>
 			</h:panelGrid>
 			
 			<p:separator/>
 			
 			<p:commandButton value="Encurtar URL" id="encurtarUrlButton" action="#{urlEncurtadaMBean.encurtarUrl()}" ajax="true" update="urlsPainel"/>
+		</h:form>
+	</p:panel>
 			
 	</ui:define>
 </ui:composition>
