@@ -37,12 +37,12 @@ VALUES('jobs', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'Steve Jobs');
 
 - Login
 
-![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/login.png)
+![Tela de login](https://github.com/GalvaoDaniel/imagens/blob/main/login.png)
 
 - Listagem
 
-![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/listagem.png)
+![Tela de listagem](https://github.com/GalvaoDaniel/imagens/blob/main/listagem.png)
 
 - Encurtador
 
-![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/encurtador.png)
+![Tela do encurtador](https://github.com/GalvaoDaniel/imagens/blob/main/encurtador.png)
