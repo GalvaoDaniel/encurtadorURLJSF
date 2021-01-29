@@ -5,6 +5,7 @@ Tecnoligias utilizadas:
 - Hibernate
 - MySQL 8.0.15
 - Maven
+- Tomcat 7.0
 
 Este projeto consiste de 3 telas, sendo elas, uma tela de login, outra de listagem das URLs encurtadas geradas pela usuário logado, e uma tela para a criação da URL encurtada.
 Além disso, também foi implementado um Web Service para o redirecionamento da URL encurtada para a URL correspondente. 
@@ -31,3 +32,17 @@ VALUES('bill', '5f4dcc3b5aa765d61d8327deb882cf99', 'Bill Gates');
 INSERT INTO encurtadorURLJSF_db.Usuario
 (login, senha, nome)
 VALUES('jobs', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'Steve Jobs');
+
+## Telas
+
+- Login
+
+![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/login.png)
+
+- Listagem
+
+![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/listagem.png)
+
+- Encurtador
+
+![Login screen](/Users/danielgalvao/Projects/Java/Outros_arquivos/encurtadorURLJSF/encurtador.png)
