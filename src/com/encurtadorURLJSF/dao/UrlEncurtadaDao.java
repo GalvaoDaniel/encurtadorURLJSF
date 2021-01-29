@@ -3,32 +3,34 @@ package com.encurtadorURLJSF.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.transaction.Transactional;
 
 import com.encurtadorURLJSF.model.UrlEncurtada;
 import com.encurtadorURLJSF.model.Usuario;
 
 public class UrlEncurtadaDao {
 	
-	private EntityManager entityManager;
-	
-	public UrlEncurtadaDao() {
-		entityManager = Persistence.createEntityManagerFactory("encurtadorURLJSF6").createEntityManager();
-	}
-	
-	@Transactional
 	public void persist(UrlEncurtada urlEncurtada) {
-		entityManager.getTransaction().begin();
-
-		entityManager.persist(urlEncurtada);
-		entityManager.getTransaction().commit();
-        
-        entityManager.close();
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		
+		try {
+			entityManager.getTransaction().begin();
+			
+			entityManager.persist(urlEncurtada);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			
+			e.printStackTrace();
+			throw new RuntimeException("Erro ao persistir UrlEncurtada.");
+		} finally {
+			entityManager.close();
+		}
         
 	}
 	
 	public List<UrlEncurtada> findAll() {
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		
 		List<UrlEncurtada> urlsEncurtadas = entityManager
 				.createQuery("SELECT url FROM UrlEncurtada url", UrlEncurtada.class)
         		.getResultList();
@@ -37,6 +39,8 @@ public class UrlEncurtadaDao {
 	}
 	
 	public List<UrlEncurtada> findByUsuario(Usuario usuario) {
+		EntityManager entityManager = JpaUtil.getEntityManager();
+		
 		List<UrlEncurtada> urlsEncurtadas = entityManager
 				.createQuery("SELECT url FROM UrlEncurtada url WHERE url.usuario LIKE :usuario", UrlEncurtada.class)
         		.setParameter("usuario", usuario)

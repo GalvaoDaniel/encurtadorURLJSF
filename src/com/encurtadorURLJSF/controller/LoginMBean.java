@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.encurtadorURLJSF.dao.UrlEncurtadaDao;
-import com.encurtadorURLJSF.dao.UsuarioDao;
+import com.encurtadorURLJSF.businessLogic.UrlEncurtadaService;
+import com.encurtadorURLJSF.businessLogic.UsuarioService;
 import com.encurtadorURLJSF.model.UrlEncurtada;
 import com.encurtadorURLJSF.model.Usuario;
 
@@ -21,6 +21,11 @@ import com.encurtadorURLJSF.model.Usuario;
 public class LoginMBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	private UsuarioService usuarioService = new UsuarioService();
+	
+	private UrlEncurtadaService urlEncurtadaService = new UrlEncurtadaService();
+	
 	
 	private String login;
 	
@@ -36,8 +41,7 @@ public class LoginMBean implements Serializable{
 			return "login";
 		}
 		
-		UsuarioDao usuarioDao = new UsuarioDao();
-		Usuario usuarioLogando = usuarioDao.findUsuarioByLogin(login);
+		Usuario usuarioLogando = usuarioService.findUsuarioByLogin(login);
 		
 		String senhaMd5Digest = DigestUtils.md5Hex(senha);
 		
@@ -61,8 +65,7 @@ public class LoginMBean implements Serializable{
     }
 	
 	public String listagem() {
-		UrlEncurtadaDao urlEncurtadaDao = new UrlEncurtadaDao();
-		urlsEncurtadas = urlEncurtadaDao.findByUsuario(usuarioLogado);
+		urlsEncurtadas = urlEncurtadaService.findByUsuario(usuarioLogado);
 		return "/loggedIn/listagem?faces-redirect=true";
 	}
 	
